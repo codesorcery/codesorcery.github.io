@@ -1,7 +1,9 @@
 {
     "name": "Chartster",
-    "display": "standalone",
-    "orientation": "landscape-primary",
+    "display": "fullscreen",
+    "background_color": "#FFECD1",
+    "theme_color": "#FFECD1",
+    "scope": "/chartster/",
     "icons": [
         {
             "src": "icons/16.png",
