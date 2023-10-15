@@ -2,22 +2,29 @@
 <html>
     <head>
         <title>Chartster</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
         <script src="https://open.spotify.com/embed/iframe-api/v1" async></script>
         <script>
             let library = fetch("library.json")
                 .then((response) => response.json())
                 .catch(error => console.error);
             var controller;
-            function playSong() {
+            var year;
+            function next() {
+                document.getElementById("year").textContent = "";
+                document.getElementById("content").classList.add('is-flipped');
                 library.then(content => {
                     years = Object.keys(content)
                     year = years[Math.floor(Math.random() * years.length)];
-                    document.getElementById("year").textContent = year;
                     tracks = content[year];
                     track = tracks[Math.floor(Math.random() * tracks.length)];
                     controller.loadUri("spotify:track:" + track);
                     controller.play();
                 })
+            }
+            function guess() {
+                document.getElementById("year").textContent = year;
+                document.getElementById("content").classList.remove('is-flipped');
             }
             window.onSpotifyIframeApiReady = (IFrameAPI) => {
                 const element = document.getElementById('embed-iframe');
@@ -31,9 +38,17 @@
             };
         </script>
     </head>
-    <body style="background-color:#FFECD1;">
-        <button style="width:100%;height:100vh;border-radius:10px;font-size:50vw;background-color:#15616D;color:#FFECD1;" onclick="playSong()">&#x25B6;</button>
+    <body>
+        <div class="card">
+            <div class="content" id="content">
+                <div id="front" onclick="next()">
+                    <div class="centered" id="year">&#x25B6;</div>
+                </div>
+                <div id="back" onclick="guess()">
+                    <div class="centered">?</div>
+                </div>
+            </div>
+        </div>
         <div id="embed-iframe"></div>
-        <button style="width:100%;height:100vh;font-size:25.5vw;border-radius:10px;background-color:#001524;color:#FFECD1;" id="year" onclick="window.scrollTo({top: 0, left: 0, behavior: 'smooth'})">????</button>
     </body>
 </html>
