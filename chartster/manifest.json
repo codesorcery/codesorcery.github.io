@@ -1,8 +1,8 @@
 {
     "name": "Chartster",
     "display": "fullscreen",
-    "background_color": "#FFECD1",
-    "theme_color": "#FFECD1",
+    "background_color": "#001524",
+    "theme_color": "#001524",
     "scope": "/chartster/",
     "icons": [
         {

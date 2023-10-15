@@ -1,13 +1,20 @@
+html {
+    overflow: hidden;
+    margin: 0;
+}
+
 body {
   background-color:#FFECD1;
   font-family: Helvetica, Arial, sans-serif;
+  margin: 0;
+  height: 100vh;
 }
 
 .card {
-  width: 100%;
-  height: 100vh;
-  float: left;
+  width: 99%;
+  height: 98%;
   perspective: 500px;
+  margin: 0.5%;
 }
 
 .content {
@@ -16,9 +23,6 @@ body {
   box-shadow: 0 0 15px rgba(0,0,0,0.1);
   transform-style: preserve-3d;
   transition: transform 1s;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   cursor: pointer;
 }
 
@@ -28,9 +32,11 @@ body {
 
 .centered {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
 }
 
 #front,
@@ -38,19 +44,23 @@ body {
   position: absolute;
   height: 100%;
   width: 100%;
-  line-height: 300px;
   color: rgba(255, 236, 209, 0.7);
   text-align: center;
-  font-size:25.5vw;
   border-radius: .75rem;
   backface-visibility: hidden;
 }
 
 #front {
+  font-size:40vw;
   background-color:#001524;
 }
 
 #back {
+  font-size:100vmin;
   background-color:#15616D;
   transform: rotateY(180deg);
+}
+
+#player {
+    height: 100%;
 }
